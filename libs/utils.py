@@ -40,7 +40,7 @@ class Parser:
         arr = []
         # create collection of dict: 'Candidate' & 'Visit'
         for item in collection:
-            if 'Candidate' in item and 'Visit' in item:
+            if b'Candidate' in item and b'Visit' in item:
                 print('WTF')
                 arr.append({
                     'Candidate': item['Candidate'],
