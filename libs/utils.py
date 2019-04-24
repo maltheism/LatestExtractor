@@ -40,6 +40,8 @@ class Parser:
         arr = []
         # create collection of dict: 'Candidate' & 'Visit'
         for item in collection:
+            print ('item:')
+            print (item)
             if 'Candidate' in item and 'Visit' in item:
                 arr.append({
                     'Candidate': item['Candidate'],
@@ -49,10 +51,12 @@ class Parser:
         seen = set()
         new_collection = []
         for d in arr:
+            print ('d:')
+            print (d)
             t = tuple(sorted(d.items()))
             if t not in seen:
                 seen.add(t)
                 new_collection.append(d)
-        print ('Santiago Check:')
+        print ('Santiago Check new_collection:')
         print (new_collection)
         return new_collection
