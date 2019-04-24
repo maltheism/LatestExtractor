@@ -100,6 +100,8 @@ class Loris:
     # (array of dict: containing CandID) supplied.
     def fetch_instruments(self, collection):
         print('- Loris: fetch_instruments fired!')
+        print ('HELP! Check:')
+        print collection
         if collection:
             for item in collection:
                 if item['Candidate']:
