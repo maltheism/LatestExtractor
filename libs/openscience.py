@@ -101,7 +101,7 @@ class Loris:
     def fetch_instruments(self, collection):
         print('- Loris: fetch_instruments fired!')
         print ('HELP! Check:')
-        print collection
+        print (collection)
         if collection:
             for item in collection:
                 if item['Candidate']:
