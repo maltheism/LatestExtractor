@@ -24,7 +24,6 @@ class Parser:
             line = str(line)
             # strip whitespace and split string by '=' into array.
             arr = (line.replace(' ', '')).split('=')
-            print (arr)
 
             if len(arr) == 1:
                 if bool(d):
@@ -35,9 +34,6 @@ class Parser:
                     d[arr[0]] = arr[1]
             elif len(arr) == 2:
                 d[arr[0]] = arr[1]
-
-            print ('Check collection:')
-            print (collection)
         return collection
 
     def get_candidate_and_timepoint_collection(self, collection):
@@ -57,4 +53,6 @@ class Parser:
             if t not in seen:
                 seen.add(t)
                 new_collection.append(d)
+        print ('Santiago Check:')
+        print (new_collection)
         return new_collection
