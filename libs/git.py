@@ -67,6 +67,7 @@ class Annex:
                     print(output)
                     output = str(output, 'utf-8')
                     output = output.replace(' ', '')
+                    output = output.strip()
                     # execute command: 'git annex registerurl key url' in shell.
                     print('CHECK output:')
                     print(output)
