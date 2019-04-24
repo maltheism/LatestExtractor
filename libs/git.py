@@ -68,6 +68,10 @@ class Annex:
                     output = str(output, 'utf-8')
                     output = output.replace(' ', '')
                     # execute command: 'git annex registerurl key url' in shell.
+                    print('CHECK output:')
+                    print(output)
+                    print('Check file_name_and_url[1]:')
+                    print(file_name_and_url[1])
                     p = subprocess.Popen(
                         'git annex registerurl ' + output + ' ' + file_name_and_url[1],
                         stdout=subprocess.PIPE,
