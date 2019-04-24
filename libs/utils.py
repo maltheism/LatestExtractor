@@ -29,7 +29,7 @@ class Parser:
                 if bool(d):
                     collection.append(d)
                     d = {}
-                arr = (line.strip()).split(' ')
+                arr = (line.replace(' ', '')).split(' ')
                 if len(arr) == 2:
                     d[arr[0]] = arr[1]
             elif len(arr) == 2:
