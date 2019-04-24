@@ -35,6 +35,9 @@ class Parser:
                     d[arr[0]] = arr[1]
             elif len(arr) == 2:
                 d[arr[0]] = arr[1]
+
+            print ('Check collection:')
+            print collection
         return collection
 
     def get_candidate_and_timepoint_collection(self, collection):
