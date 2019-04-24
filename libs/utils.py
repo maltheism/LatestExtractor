@@ -20,7 +20,7 @@ class Parser:
         # loop line by line (the data).
         for line in data.splitlines():
             # strip whitespace and split string by '=' into array.
-            arr = (line.strip()).split('=')
+            arr = (line.replace(' ', '')).split('=')
             if len(arr) == 1:
                 if bool(d):
                     collection.append(d)
