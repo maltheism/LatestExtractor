@@ -24,6 +24,7 @@ class Parser:
             line = str(line)
             # strip whitespace and split string by '=' into array.
             arr = (line.replace(' ', '')).split('=')
+            print (arr)
 
             if len(arr) == 1:
                 if bool(d):
