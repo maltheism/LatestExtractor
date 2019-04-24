@@ -20,6 +20,7 @@ class Parser:
         # loop line by line (the data).
         for line in data.splitlines():
             # strip whitespace and split string by '=' into array.
+            print (line)
             arr = (line.replace(' ', '')).split('=')
             if len(arr) == 1:
                 if bool(d):
