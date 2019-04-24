@@ -65,8 +65,8 @@ class Annex:
                     print('2) success on lookupkey of git annex.')
                     print('the output is:')
                     print(output)
-                    output = output.replace(' ', '')
                     output = str(output, 'utf-8')
+                    output = output.replace(' ', '')
                     # execute command: 'git annex registerurl key url' in shell.
                     p = subprocess.Popen(
                         'git annex registerurl ' + output + ' ' + file_name_and_url[1],
