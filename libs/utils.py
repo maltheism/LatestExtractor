@@ -19,6 +19,8 @@ class Parser:
         collection = []
         # loop line by line (the data).
         for line in data.splitlines():
+            if not line or line is None:
+                continue
             # strip whitespace and split string by '=' into array.
             print (line)
             arr = (line.replace(' ', '')).split('=')
