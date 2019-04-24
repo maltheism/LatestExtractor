@@ -40,7 +40,7 @@ class Parser:
         arr = []
         # create collection of dict: 'Candidate' & 'Visit'
         for item in collection:
-            item = item.decode('ascii')
+            item = item.decode('utf-8')
             print (item)
             if 'Candidate' in item and 'Visit' in item:
                 print('WTF')
