@@ -17,13 +17,19 @@ class Parser:
     def read_annex_data(self, data):
         d = {}
         collection = []
+        print (data)
         # loop line by line (the data).
         for line in data.splitlines():
             if not line or line is None:
                 continue
+
             # strip whitespace and split string by '=' into array.
+            line = line.encode()
             print (line)
-            arr = (line.replace(' ', '')).split('=')
+            print ('hello')
+            tmp = line.replace(' ', '')
+            arr = tmp.split('=')
+
             if len(arr) == 1:
                 if bool(d):
                     collection.append(d)
