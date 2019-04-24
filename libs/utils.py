@@ -19,12 +19,11 @@ class Parser:
         collection = []
         print (data)
         # loop line by line (the data).
-        for line in data.splitlines():
+        for line in str(data.splitlines()):
             if not line or line is None:
                 continue
 
             # strip whitespace and split string by '=' into array.
-            line = line.encode()
             print (line)
             print ('hello')
             tmp = line.replace(' ', '')
