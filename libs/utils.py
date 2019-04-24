@@ -21,7 +21,7 @@ class Parser:
         for line in data.splitlines():
             if not line or line is None:
                 continue
-            line = str(line)
+            line = str(line, 'utf-8')
             # strip whitespace and split string by '=' into array.
             arr = (line.replace(' ', '')).split('=')
 
@@ -40,7 +40,6 @@ class Parser:
         arr = []
         # create collection of dict: 'Candidate' & 'Visit'
         for item in collection:
-            item = item.decode('utf-8')
             print (item)
             if 'Candidate' in item and 'Visit' in item:
                 print('WTF')
