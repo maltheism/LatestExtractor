@@ -85,7 +85,7 @@ class Loris:
                         if 'CandID' in item and len(item['CandID']) > 6:
                             if item['CandID'] in self.seen:
                                 continue
-                            self.seen[item['CandID']] True
+                            self.seen[item['CandID']] = True
                             candidate_data = self.get_candidate(item['CandID'])
                             for visit_label in candidate_data['Visits']:
                                 # gets data of each visit in candidate from api
