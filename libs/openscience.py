@@ -66,9 +66,8 @@ class Loris:
             print('- Loris: login success.')
             return True
 
-    # fetch all candidates from loris instance.
-    def fetch_candidates(self):
-        print('- Loris: fetch_candidates fired!')
+        # fetch all candidates from loris instance.
+    def fetch_candidates(self, collection):
         candidates_response = json.loads(requests.get(
             url=self.url + self.api['candidates'],
             verify=False,
@@ -78,6 +77,34 @@ class Loris:
         ).content.decode('ascii'))
         if 'Candidates' in candidates_response:
             self.candidates = candidates_response['Candidates']
+            # Remove what we don't need
+            for item_in_collection in collection:
+                for item in self.candidates:
+                    if 'CandID' in item:
+                        if 'CandID' in item and len(item['CandID']) > 6:
+                            candidate_data = self.get_candidate(item['CandID'])
+                            for visit_label in candidate_data['Visits']:
+                                # gets data of each visit in candidate from api
+                                visit_in_candidate = json.loads(requests.get(
+                                    url=self.url + self.api['candidates']
+                                        + item['CandID']
+                                        + '/'
+                                        + visit_label,
+                                    verify=False,
+                                    headers={
+                                        'Authorization': 'Bearer %s' % self.token
+                                    }
+                                ).content.decode('ascii'))
+                                self.file.save_to_file(
+                                    'visit_' + item['CandID'] + '_' + visit_label + '.json',
+                                    json.dumps(visit_in_candidate)
+                                )
+
+            self.file.save_to_file(
+                'Candidate_Data.json',
+                json.dumps(candidates_response)
+            )
+
             return True
         else:
             self.candidates = []

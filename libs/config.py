@@ -13,7 +13,7 @@ class Settings:
     # password for loris.
     password = 'a1123581321'
     # enable debug mode.
-    debug = False
+    debug = True
 
     # disables print if debug false.
     @staticmethod
