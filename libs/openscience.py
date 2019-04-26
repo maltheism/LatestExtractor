@@ -31,6 +31,7 @@ class Loris:
         self.file = utils.File()
         # history of file & url created.
         self.history_file_and_url = []
+        self.seen = {}
         print('- Loris: init finished.')
 
     # login session for loris instance.
@@ -82,6 +83,9 @@ class Loris:
                 for item in self.candidates:
                     if 'CandID' in item:
                         if 'CandID' in item and len(item['CandID']) > 6:
+                            if item['CandID'] in self.seen:
+                                continue
+                            self.seen[item['CandID']] True
                             candidate_data = self.get_candidate(item['CandID'])
                             for visit_label in candidate_data['Visits']:
                                 # gets data of each visit in candidate from api
